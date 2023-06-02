@@ -1,6 +1,6 @@
 local M = {}
 
-function M.nvim_lsp()
+local function lsp()
     local error_count, warning_count, info_count, hint_count
     local diagnostics = vim.diagnostic.get(0)
     local count = { 0, 0, 0, 0 }
@@ -14,6 +14,15 @@ function M.nvim_lsp()
     info_count = count[vim.diagnostic.severity.INFO]
     hint_count = count[vim.diagnostic.severity.HINT]
     return error_count, warning_count, info_count, hint_count
+end
+
+function M.get_diagnostics()
+    local signs = { error = "  ", warn = "  ", hint = "  ", info = "  " }
+    local error, warn, info, hint = lsp()
+    return (error > 0 and signs.error .. error or "")
+        .. (warn > 0 and signs.warn .. warn or "")
+        .. (hint > 0 and signs.hint .. hint or "")
+        .. (info > 0 and signs.info .. info or "")
 end
 
 return M

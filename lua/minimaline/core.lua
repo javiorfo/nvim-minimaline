@@ -46,6 +46,8 @@ function M.build()
     local style = "%#Define#"
     local vim = "  "
     local mode = "%-5{%v:lua.require'minimaline.core'.get_mode()%}"
+    local git_branch = "%-5{%v:lua.require'minimaline.git'.get_git_branch()%}"
+    local lsp_diagnostics = "%-2{%v:lua.require'minimaline.lsp'.get_diagnostics()%}"
     local file_name = "%-.16t"
     local buf_nr = "[%n]"
     local modified = " %-m"
@@ -55,10 +57,12 @@ function M.build()
     local pct_thru_file = "%5p%%"
 
     return string.format(
-        "%s %s %s %s%s%s%s%s%s%s",
+        "%s %s %s %s %s%s%s%s%s%s%s%s",
         style,
         vim,
         mode,
+        git_branch,
+        lsp_diagnostics,
         file_name,
         buf_nr,
         modified,

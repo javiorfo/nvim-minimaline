@@ -1,7 +1,7 @@
 local M = {}
 
 function M.get_git_branch()
-    return "master"
+    return " master"
 end
 
 return M
