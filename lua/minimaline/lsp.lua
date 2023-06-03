@@ -17,12 +17,15 @@ local function lsp()
 end
 
 function M.get_diagnostics()
-    local signs = { error = "  ", warn = "  ", hint = "  ", info = "  " }
+    local signs = { error = "  ", warn = "  ", hint = "  ", info = "   " }
     local error, warn, info, hint = lsp()
-    return (error > 0 and signs.error .. error or "")
+    local result =  (error > 0 and signs.error .. error or "")
         .. (warn > 0 and signs.warn .. warn or "")
         .. (hint > 0 and signs.hint .. hint or "")
         .. (info > 0 and signs.info .. info or "")
+
+    if result ~= "" then result = "" .. result .. " " end
+    return result
 end
 
 return M
