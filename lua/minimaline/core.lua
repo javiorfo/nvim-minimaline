@@ -59,7 +59,7 @@ function M.modified()
 end
 
 function M.build()
-    local style = "%#Normal#"
+    local style = "%#Minimaline#"
     local mode_icon = "󰰑 "
     local mode = "%{%v:lua.require'minimaline.core'.get_mode()%}"
     local git_branch = "%{%v:lua.require'minimaline.git'.get_git_branch()%}"
