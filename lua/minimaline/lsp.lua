@@ -17,7 +17,7 @@ local function lsp()
 end
 
 function M.get_diagnostics()
-    local signs = { error = "  ", warn = "  ", hint = "  ", info = "   " }
+    local signs = { error = "   ", warn = "   ", hint = "  ", info = "   " }
     local error, warn, info, hint = lsp()
     local result =  (error > 0 and signs.error .. error or "")
         .. (warn > 0 and signs.warn .. warn or "")

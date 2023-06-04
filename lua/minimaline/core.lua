@@ -47,22 +47,31 @@ function M.get_icon()
     return (devicons.get_icon_by_filetype(vim.bo.filetype)) or ""
 end
 
+function M.modified()
+    if vim.bo.modifiable then
+        if vim.bo.modified then
+            return "󱇧"
+        else
+            return "󰈖"
+        end
+    else
+        return "󰷆"
+    end
+end
+
 function M.build()
-    local style = "%#Define#"
+    local style = "%#Normal#"
     local vim = "  "
-    local mode = "%-5{%v:lua.require'minimaline.core'.get_mode()%}"
-    local git_branch = "%-5{%v:lua.require'minimaline.git'.get_git_branch()%}"
-    local lsp_diagnostics = "%-1{%v:lua.require'minimaline.lsp'.get_diagnostics()%}"
-    local file_type = " %-2{%v:lua.require'minimaline.core'.get_icon()%}"
-    local file_name = "%-.16t"
-    local buf_nr = "[%n]"
-    local modified = " %-m"
-    local right_align = "%="
-    local line_no = "%10([%l/%L%)]"
-    local pct_thru_file = "%5p%%"
+    local mode = "%-4{%v:lua.require'minimaline.core'.get_mode()%}"
+    local git_branch = "%-{%v:lua.require'minimaline.git'.get_git_branch()%}"
+    local lsp_diagnostics = "%{%v:lua.require'minimaline.lsp'.get_diagnostics()%}"
+    local file_type = "%-2{%v:lua.require'minimaline.core'.get_icon()%}"
+    local file_name = "%-t   %n"
+    local modified = "%-2{%v:lua.require'minimaline.core'.modified()%}"
+    local line_no = "%2(󰰎  %l/%L  󰯳  %c%)"
 
     return string.format(
-        "%s %s %s %s %s %s %s %s %s %s %s %s",
+        "%s %s %s %s %s %s %s %s %s",
         style,
         vim,
         mode,
@@ -70,11 +79,8 @@ function M.build()
         lsp_diagnostics,
         file_type,
         file_name,
-        buf_nr,
         modified,
-        right_align,
-        line_no,
-        pct_thru_file
+        line_no
     )
 end
 
