@@ -10,11 +10,10 @@ local function disable_statusline()
     ]]
 end
 
-function M.setup(opts)
+function M.setup()
     vim.api.nvim_create_autocmd({"VimEnter", "BufWinEnter", "BufEnter"}, {
-          pattern = {"NvimTree_1"}, callback = disable_statusline })
+          pattern = {"NvimTree*"}, callback = disable_statusline })
     vim.opt.statusline = statusline.build()
-    vim.cmd[[hi link Minimaline Define]]
 end
 
 return M
