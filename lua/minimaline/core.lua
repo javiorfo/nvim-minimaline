@@ -70,7 +70,7 @@ function M.build()
     local line_no = "%(󰰎  %l/%L  󰯳  %c%)"
 
     return string.format(
-        "%s %s %s %s %s %s %s %s   %s",
+        "%s %s %s %s %s %s  %s %s   %s",
         style,
         mode_icon,
         mode,
