@@ -24,7 +24,7 @@ function M.get_diagnostics()
         .. (hint > 0 and signs.hint .. hint or "")
         .. (info > 0 and signs.info .. info or "")
 
-    if result ~= "" then result = "" .. result .. " " end
+    if result ~= "" then result = result .. " " end
     return result
 end
 

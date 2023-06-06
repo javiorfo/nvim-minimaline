@@ -64,19 +64,19 @@ function M.build()
     local mode = "%{%v:lua.require'minimaline.core'.get_mode()%}"
     local git_branch = "%{%v:lua.require'minimaline.git'.get_git_branch()%}"
     local lsp_diagnostics = "%{%v:lua.require'minimaline.lsp'.get_diagnostics()%}"
-    local file_type = "%{%v:lua.require'minimaline.core'.get_icon()%}"
+    local file_icon = "%{%v:lua.require'minimaline.core'.get_icon()%}"
     local file_name = "%t   %n"
     local modified = "%{%v:lua.require'minimaline.core'.modified()%}"
     local line_no = "%(󰰎  %l/%L  󰯳  %c%)"
 
     return string.format(
-        "%s %s %s%s %s %s  %s %s    %s",
+        "%s %s %s %s %s %s %s %s   %s",
         style,
         mode_icon,
         mode,
         git_branch,
         lsp_diagnostics,
-        file_type,
+        file_icon,
         file_name,
         modified,
         line_no
