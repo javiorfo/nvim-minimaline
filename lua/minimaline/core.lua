@@ -2,43 +2,45 @@ local M = {}
 local devicons = require'nvim-web-devicons'
 
 function M.get_mode()
+    local n = '󰈔'
+    local v = '󰷊'
+    local i = '󱇧'
+    local c = ''
     local modes = {
-        ['n']     = 'NOR',
-        ['no']    = 'O-P',
-        ['nov']   = 'O-P',
-        ['noV']   = 'O-P',
-        ['no\22'] = 'O-P',
-        ['niI']   = 'NOR',
-        ['niR']   = 'NOR',
-        ['niV']   = 'NOR',
-        ['nt']    = 'NOR',
-        ['ntT']   = 'NOR',
-        ['v']     = 'VIS',
-        ['vs']    = 'VIS',
-        ['V']     = 'V-L',
-        ['Vs']    = 'V-L',
-        ['\22']   = 'V-B',
-        ['\22s']  = 'V-B',
-        ['s']     = 'SEL',
-        ['S']     = 'S-L',
-        ['\19']   = 'S-B',
-        ['i']     = 'INS',
-        ['ic']    = 'INS',
-        ['ix']    = 'INS',
-        ['R']     = 'REP',
-        ['Rc']    = 'REP',
-        ['Rx']    = 'REP',
-        ['Rv']    = 'V-R',
-        ['Rvc']   = 'V-R',
-        ['Rvx']   = 'V-R',
-        ['c']     = 'COM',
-        ['cv']    = 'EX',
-        ['ce']    = 'EX',
-        ['r']     = 'REP',
-        ['rm']    = 'MOR',
-        ['r?']    = 'CON',
-        ['!']     = 'SHE',
-        ['t']     = 'TER',
+        ['n']     = n,
+        ['no']    = n,
+        ['nov']   = n,
+        ['noV']   = n,
+        ['no\22'] = n,
+        ['niI']   = n,
+        ['niR']   = n,
+        ['niV']   = n,
+        ['nt']    = n,
+        ['ntT']   = n,
+        ['v']     = v,
+        ['vs']    = v,
+        ['V']     = v,
+        ['Vs']    = v,
+        ['\22']   = v,
+        ['\22s']  = v,
+        ['s']     = i,
+        ['S']     = i,
+        ['\19']   = i,
+        ['i']     = i,
+        ['ic']    = i,
+        ['ix']    = i,
+        ['R']     = i,
+        ['Rc']    = i,
+        ['Rx']    = i,
+        ['Rv']    = i,
+        ['Rvc']   = i,
+        ['Rvx']   = i,
+        ['c']     = c,
+        ['cv']    = c,
+        ['ce']    = c,
+        ['r']     = i,
+        ['!']     = '󰩋',
+        ['t']     = '',
     }
     return modes[vim.fn.mode()]
 end
@@ -49,12 +51,12 @@ end
 
 function M.modified()
     if vim.bo.readonly then
-        return "󰈡"
+        return ""
     end
     if vim.bo.modifiable then
-        return vim.bo.modified and "󱇧" or "󰈖"
+        return vim.bo.modified and "󰳻" or "󱣪"
     else
-        return "󰷆"
+        return "󱙃"
     end
 end
 
