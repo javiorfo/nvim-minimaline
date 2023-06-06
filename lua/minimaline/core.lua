@@ -1,11 +1,11 @@
 local M = {}
-local devicons = require'nvim-web-devicons'
+local devicons_available, devicons = pcall(require, 'nvim-web-devicons')
 
 function M.get_mode()
-    local n = '󰈔'
-    local v = '󰷊'
-    local i = '󱇧'
-    local c = ''
+    local n = ''
+    local v = ''
+    local i = ''
+    local c = ''
     local modes = {
         ['n']     = n,
         ['no']    = n,
@@ -39,14 +39,19 @@ function M.get_mode()
         ['cv']    = c,
         ['ce']    = c,
         ['r']     = i,
-        ['!']     = '󰩋',
+        ['!']     = '󰩌',
         ['t']     = '',
     }
     return modes[vim.fn.mode()]
 end
 
 function M.get_icon()
-    return (devicons.get_icon_by_filetype(vim.bo.filetype)) or ""
+    local default_file_icon = "󰈔"
+    if devicons_available then
+        return (devicons.get_icon_by_filetype(vim.bo.filetype)) or default_file_icon
+    else
+        return default_file_icon
+    end
 end
 
 function M.modified()
@@ -54,9 +59,9 @@ function M.modified()
         return ""
     end
     if vim.bo.modifiable then
-        return vim.bo.modified and "󰳻" or "󱣪"
+        return vim.bo.modified and "󰽃" or "󰠘"
     else
-        return "󱙃"
+        return "󱙄"
     end
 end
 
