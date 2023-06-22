@@ -1,3 +1,4 @@
+local DEFAULT = require'minimaline'.DEFAULT
 local M = {}
 
 local function lsp()
@@ -14,6 +15,16 @@ local function lsp()
     info_count = count[vim.diagnostic.severity.INFO]
     hint_count = count[vim.diagnostic.severity.HINT]
     return error_count, warning_count, info_count, hint_count
+end
+
+local groups = {
+    error = "",
+    warn  = "",
+    hint  = "",
+    info  = ""
+}
+
+local function get_group_style(groups)
 end
 
 function M.get_diagnostics()

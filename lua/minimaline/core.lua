@@ -75,9 +75,10 @@ function M.build()
     local file_name = "%t   %n"
     local modified = "%{%v:lua.require'minimaline.core'.modified()%}"
     local line_no = "%(󰰎  %l/%L  󰯳  %c%)"
+    local encoding = "%{&fileencoding?&fileencoding:&encoding}"
 
     return string.format(
-        "%s %s %s %s %s %s  %s %s   %s",
+        "%s %s %s %s %s %s  %s %s   %s  %s",
         style,
         mode_icon,
         mode,
@@ -86,7 +87,8 @@ function M.build()
         file_icon,
         file_name,
         modified,
-        line_no
+        line_no,
+        encoding
     )
 end
 
