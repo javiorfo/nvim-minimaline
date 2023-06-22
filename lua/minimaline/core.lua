@@ -1,5 +1,6 @@
-local M = {}
 local devicons_available, devicons = pcall(require, 'nvim-web-devicons')
+local util = require'minimaline.util'
+local M = {}
 
 function M.get_mode()
     local n = ''
@@ -66,7 +67,7 @@ function M.modified()
 end
 
 function M.build()
-    local style = "%#Minimaline#"
+    local style = util.MINIMALINE_GROUP
     local mode_icon = "󰰑 "
     local mode = "%{%v:lua.require'minimaline.core'.get_mode()%}"
     local git_branch = "%{%v:lua.require'minimaline.git'.get_git_branch()%}"
@@ -74,7 +75,7 @@ function M.build()
     local file_icon = "%{%v:lua.require'minimaline.core'.get_icon()%}"
     local file_name = "%t   %n"
     local modified = "%{%v:lua.require'minimaline.core'.modified()%}"
-    local line_no = "%(󰰎  %l/%L  󰯳  %c%)"
+    local line_no = "%( %l/%L   %c%)"
     local encoding = "%{&fileencoding?&fileencoding:&encoding}"
 
     return string.format(

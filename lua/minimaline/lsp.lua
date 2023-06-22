@@ -1,4 +1,5 @@
-local DEFAULT = require'minimaline'.DEFAULT
+local default = require'minimaline'.DEFAULT
+local util = require'minimaline.util'
 local M = {}
 
 local function lsp()
@@ -18,24 +19,28 @@ local function lsp()
 end
 
 local groups = {
-    error = "",
-    warn  = "",
-    hint  = "",
-    info  = ""
+    error = util.MINIMALINE_GROUP_ERROR,
+    warn  = util.MINIMALINE_GROUP_WARN,
+    hint  = util.MINIMALINE_GROUP_HINT,
+    info  = util.MINIMALINE_GROUP_INFO
 }
 
-local function get_group_style(groups)
+local function get_group_style(group)
+    if not default.lsp_colors_enabled then
+        return util.MINIMALINE_GROUP
+    end
+    return groups[group]
 end
 
 function M.get_diagnostics()
     local signs = { error = "   ", warn = "   ", hint = "  ", info = "   " }
     local error, warn, info, hint = lsp()
-    local result = (error > 0 and "%#DiagnosticError#".. signs.error .. error or "")
-        .. (warn > 0 and "%#DiagnosticWarn#" .. signs.warn .. warn or "")
-        .. (hint > 0 and "%#DiagnosticHint#" .. signs.hint .. hint or "")
-        .. (info > 0 and "%#DiagnosticInfo#" .. signs.info .. info or "")
+    local result = (error > 0 and get_group_style("error") .. signs.error .. error or "")
+        .. (warn > 0 and get_group_style("warn") .. signs.warn .. warn or "")
+        .. (hint > 0 and get_group_style("hint") .. signs.hint .. hint or "")
+        .. (info > 0 and get_group_style("info") .. signs.info .. info or "")
 
-    if result ~= "" then result = result .. " %#Minimaline#" end
+    if result ~= "" then result = result .. " " .. util.MINIMALINE_GROUP .. "" end
     return result
 end
 
