@@ -18,7 +18,6 @@ local function validate(opts)
     if opts.disabled_filetypes then
         if next(opts.disabled_filetypes) ~= nil and type(opts.disabled_filetypes) == "table" then
             M.DEFAULT.disabled_filetypes = opts.disabled_filetypes
-            return true
         else
             vim.notify("Minimaline   Setup Error: property 'disabled_filetypes' must be a non-empty table'", vim.log.levels.ERROR)
             return false
@@ -28,7 +27,6 @@ local function validate(opts)
     if opts.style then
         if next(opts.style) ~= nil and type(opts.style) == "table" then
             M.DEFAULT.style = opts.style
-            return true
         else
             vim.notify("Minimaline   Setup Error: property 'style' must be a non-empty table'", vim.log.levels.ERROR)
             return false
@@ -38,12 +36,12 @@ local function validate(opts)
     if opts.lsp_colors_enabled ~= nil then
         if type(opts.lsp_colors_enabled) == "boolean" then
             M.DEFAULT.lsp_colors_enabled = opts.lsp_colors_enabled
-            return true
         else
             vim.notify("Minimaline   Setup Error: property 'lsp_colors_enabled' must be a boolean value'", vim.log.levels.ERROR)
             return false
         end
     end
+    return true
 end
 
 function M.setup(opts)
