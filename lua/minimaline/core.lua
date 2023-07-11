@@ -3,7 +3,7 @@ local util = require'minimaline.util'
 local M = {}
 
 function M.get_mode()
-    local n = ''
+    local n = ''
     local v = ''
     local i = ''
     local c = ''
@@ -60,15 +60,16 @@ function M.modified()
         return ""
     end
     if vim.bo.modifiable then
-        return vim.bo.modified and "󰽃" or "󰠘"
+        return vim.bo.modified and "󰝒" or "󰈖"
     else
-        return "󱙄"
+        return "󰈛"
     end
 end
 
 function M.build()
     local style = util.MINIMALINE_GROUP
-    local mode_icon = "󰰑 "
+    local mode_icon = " "
+--     local mode_icon = "󰰑 "
     local mode = "%{%v:lua.require'minimaline.core'.get_mode()%}"
     local git_branch = "%{%v:lua.require'minimaline.git'.get_git_branch()%}"
     local lsp_diagnostics = "%{%v:lua.require'minimaline.lsp'.get_diagnostics()%}"
