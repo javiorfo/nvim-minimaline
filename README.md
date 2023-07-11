@@ -51,6 +51,9 @@ require'minimaline'.setup {
 ```
 
 # Format
+| MODE | GIT BRANCH | LSP DIAGNOSTICS | BUF_NAME BUF_NR -> STATE | LINE_NR/TOTAL_LINES COL_NR | ENCODING |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+
 <img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline-modes.png?raw=true" alt="modes" />
 <img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline-buffers.png?raw=true" alt="buffers" />
 
