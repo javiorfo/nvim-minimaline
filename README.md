@@ -10,7 +10,7 @@
 `Packer`
 ```lua
 use {
-    'progrimorio/nvim-minimaline',
+    'javiorfo/nvim-minimaline',
 
     -- Optional (only if you want file icons in the statusline)
     requires = 'nvim-tree/nvim-web-devicons'
@@ -19,7 +19,7 @@ use {
 `Lazy`
 ```lua
 {
-     "progrimorio/nvim-minimaline",
+     "javiorfo/nvim-minimaline",
      lazy = false,
 
      -- Optional (only if you want file icons in the statusline)
@@ -54,18 +54,18 @@ require'minimaline'.setup {
 | MODE | GIT BRANCH | LSP DIAGNOSTICS | BUF_NAME BUF_NR -> STATE | LINE_NR/TOTAL_LINES COL_NR | ENCODING |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 
-<img src="https://github.com/progrimorio/img/blob/master/nvim-minimaline/minimaline-modes.png?raw=true" alt="modes" />
-<img src="https://github.com/progrimorio/img/blob/master/nvim-minimaline/minimaline-buffers.png?raw=true" alt="buffers" />
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline-modes.png?raw=true" alt="modes" />
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline-buffers.png?raw=true" alt="buffers" />
 
 ## Screenshots
-<img src="https://github.com/progrimorio/img/blob/master/nvim-minimaline/minimaline1.png?raw=true" alt="minimaline1" />
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline1.png?raw=true" alt="minimaline1" />
 
-<img src="https://github.com/progrimorio/img/blob/master/nvim-minimaline/minimaline2.png?raw=true" alt="minimaline2" />
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline2.png?raw=true" alt="minimaline2" />
 
-<img src="https://github.com/progrimorio/img/blob/master/nvim-minimaline/minimaline3.png?raw=true" alt="minimaline3" />
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline3.png?raw=true" alt="minimaline3" />
 
 ---
 
 ### Donate
-- [Binance](https://raw.githubusercontent.com/progrimorio/img/master/binance/progrimorio.png)
+- [Binance](https://raw.githubusercontent.com/javiorfo/img/master/binance/javiorfo.png)
 - [Paypal](https://www.paypal.com/donate/?hosted_button_id=FA7SGLSCT2H8G)
