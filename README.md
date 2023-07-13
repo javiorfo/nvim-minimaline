@@ -64,6 +64,8 @@ require'minimaline'.setup {
 
 <img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline3.png?raw=true" alt="minimaline3" />
 
+<img src="https://github.com/javiorfo/img/blob/master/nvim-minimaline/minimaline4.png?raw=true" alt="minimaline4" />
+
 ---
 
 ### Donate
