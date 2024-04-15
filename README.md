@@ -25,15 +25,26 @@ use {
      -- Optional (only if you want file icons in the statusline)
      dependencies = { "nvim-tree/nvim-web-devicons" },
 
-     config = function()
+     opts = {
          -- Default init. For further configuration read below
          require'minimaline'.setup {}
-     end
+         -- Disable minimaline in the following filetypes (default is empty table)
+         disabled_filetypes = { "NvimTree*" },
+    
+         -- Enable or disable colors on LSP diagnostics (default is false)
+         lsp_colors_enabled = true,
+    
+         -- Set minimaline colors
+         -- Use 256 Xterm colors
+         -- foreground is "fg", background is "bg" and additionally "gui" could contain "bold", "italic" or combination "bold,italic"
+         -- Set only one option is possible (only fg or only bg, etc)
+         style = { fg = 15, bg = 0 }   
+     }
 }
 ```
 
 ### Configuration
-- Set up in *init.lua* if Packer is used. If Lazy is used, put this in the *config* function.
+- Set up in *init.lua* if Packer is used. If Lazy is used the above.
 ```lua
 require'minimaline'.setup {
     -- Disable minimaline in the following filetypes (default is empty table)
